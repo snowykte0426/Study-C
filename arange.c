@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS 
+/*#define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 int mainpqkdsnfsnvsj(void) {
 	int height[5] = { 172,181,163,175,143 };
@@ -46,3 +46,4 @@ int mainsasdagsdfhdfghggh(void) {
 	printf("아파트 전체층의 관리비 평균은 %0.f원 입니다.", (sumFloor[0] + sumFloor[1] + sumFloor[2]) / 12.0);
 	return 0;
 }
+*/
