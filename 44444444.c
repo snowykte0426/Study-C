@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 
-int ultar_arrange(void) {
+int fall_ultar_arrange(void) {
 	int arr[10000] = { 0, }, X = 0, N = 0, i;
 	scanf("%d %d", &N, &X);
 	for (i = 0; i < N; i++) {
@@ -11,7 +11,23 @@ int ultar_arrange(void) {
 	}
 	return 0;
 }
-
+int ultar_arrange() {
+    int n;
+    int arr[101];
+    int v;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    scanf("%d", &v);
+    int res = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == v)
+            res++;
+    }
+    printf("%d", res);
+    return 0;
+}
 
 int MinMax_ARRANGE(void) {
     int N;
@@ -28,6 +44,17 @@ int MinMax_ARRANGE(void) {
             max = arr[j];
     }
     printf("%d %d", min, max);
+    return 0;
+}
+
+int x_under(void) {
+    int arr[10000] = { 0, }, X = 0, N = 0, i;
+    scanf("%d %d", &N, &X);
+    for (i = 0; i < N; i++) {
+        scanf("%d", &arr[i]);
+        if (arr[i] < X)
+            printf("%d ", arr[i]);
+    }
     return 0;
 }
 
@@ -202,5 +229,81 @@ int basket_reroll(void) {
     }
     for (int d = 0; d < N; d++) 
         printf("%d ", basket[d]);
+    return 0;
+}
+
+int fall_average(void) {
+    int subject = 0;
+    double temp = 0, fin_result = 0;
+    scanf("%d", &subject);
+    float score[1001] = { 0. }; 
+    double temp_arr[1001] = { 0, };
+    for (int i = 0; i < subject; i++) {
+        scanf("%d", &score[i]);
+    }
+    int max = score[0];
+    for (int i = 1; i < subject; i++) {
+
+        if (max < score[i])
+            max = score[i];
+    }
+    for (int i = 0; i < subject; i++) {
+        if (score[i] == max)
+            goto max_find;
+        else
+            temp_arr[i] = (score[i] / max) * 100;
+        max_find:;
+    }
+    for (int i = 0; i < subject; i++) {
+        temp += temp_arr[i];
+    }
+    fin_result = temp / subject;
+    printf("%lf", fin_result);
+    return 0;
+}
+
+int average() {
+    int subject;
+    int max = 0;
+    float result = 0;
+    scanf("%d", &subject);
+    int score[1000];
+    for (int i = 0; i < subject; i++) {
+        scanf("%d", &score[i]);
+        if (max < score[i]) {
+            max = score[i];
+        }
+    }
+    for (int i = 0; i < subject; i++) 
+        result += (float)score[i] / max * 100;
+    printf("%f\n", result / subject);
+    return 0;
+}
+
+int main2(void) {
+    char string[10001] = { 0, };
+    unsigned short char_num = 0,conut = 0;
+    scanf("%s", &string);
+    for (int i = 0; i < 10001; i++) {
+        if (string[i] == 'K') {
+            conut++;
+            for()
+        }
+            
+    }
+    printf("%u", conut);
+}
+
+int main(void) {
+    //ultar_arrange();
+    //x_under();
+    //MinMax_ARRANGE();
+    //boll_input();
+    //ball_change();
+    //student();
+    //remainder();
+    //basket_reroll();
+    //average();
+    main2();
     return 0;
 }
