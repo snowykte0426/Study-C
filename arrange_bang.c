@@ -21,6 +21,7 @@ enum {
 	YELLOW,
 	WHITE,
 };
+
 int gico_problem_sov(void) {
 	for (int i = 1; i <= 100; i++) {
 		if (i % 3 == 0) {
@@ -88,32 +89,79 @@ int rebus(void) {
 	} while (num);
 	return 0;
 }
-
-int rock_paper_scissors(void) {
+int You;
+short a = 0;
+double count = 0, win = 0;
+int main(void) {
+	
 	while (1) {
+		a++;
+		You = 0;
 		srand(time(NULL));
-		printf("가위는 1,바위는 2,보는 3입니다\n");
+		if (a >= 2) {
+			if (win != 0)
+				printf("승률은 %lf%%입니다\n", win / count * 100);
+			else
+				goto game_restart;
+		}
+		game_restart:
+		count++;
+		printf("가위는 0,바위는 1,보는 2입니다\n");
 		Sleep(1000);
-		int You;
 		printf("가위!바위!보!\n: ");
 		scanf(" %d", &You);
 		int He = rand() % 3;
 		switch (You) {
+		case 0:
+			if (He == You || He == 0) {
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BLUE);
+				printf("비겼습니다\n");
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
+				continue;
+			}
+			else if (He == 1) {
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+				printf("졌습니다!\n");
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
+				continue;
+			}
+			else if (He == 2) {
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+				printf("이겼습니다!\n");
+				win++;
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
+				continue;
+			}
+			else {
+				printf("당신은 손으로 기이한 모양을 만들어 냈습니다!!");
+				for (int i = 0; i < 3; i++) {
+					printf(".\n");
+					Sleep(350);
+				}
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+				printf("상대는 판을 뒤집어버렸습니다!");
+				exit(1);
+			}
+			continue;
 		case 1:
 			if (He == You || He == 1) {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BLUE);
 				printf("비겼습니다\n");
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
+				continue;
 			}
 			else if (He == 2) {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
 				printf("졌습니다!\n");
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
+				continue;
 			}
-			else if (He == 3) {
+			else if (He == 0) {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 				printf("이겼습니다!\n");
+				win++;
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
+				continue;
 			}
 			else {
 				printf("당신은 손으로 기이한 모양을 만들어 냈습니다!!");
@@ -131,43 +179,20 @@ int rock_paper_scissors(void) {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BLUE);
 				printf("비겼습니다\n");
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
+				continue;
 			}
-			else if (He == 3) {
+			else if (He == 0) {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
 				printf("졌습니다!\n");
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-			}
-			else if (He == 1){
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
-				printf("이겼습니다!\n");
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-			}
-			else {
-				printf("당신은 손으로 기이한 모양을 만들어 냈습니다!!");
-				for (int i = 0; i < 3; i++) {
-					printf(".\n");
-					Sleep(350);
-				}
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
-				printf("상대는 판을 뒤집어버렸습니다!");
-				exit(1);
-			}
-			continue;
-		case 3:
-			if (He == You || He == 3) {
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BLUE);
-				printf("비겼습니다\n");
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
+				continue;
 			}
 			else if (He == 1) {
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
-				printf("졌습니다!\n");
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-			}
-			else if (He == 2) {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 				printf("이겼습니다!\n");
+				win++;
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
+				continue;
 			}
 			else {
 				printf("당신은 손으로 기이한 모양을 만들어 냈습니다!!");
@@ -180,6 +205,16 @@ int rock_paper_scissors(void) {
 				exit(1);
 			}
 			continue;
+
+		default:
+			printf("당신은 손으로 기이한 모양을 만들어 냈습니다!!");
+			for (int i = 0; i <= 3; i++) {
+				printf(".\n");
+				Sleep(650);
+			}
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+			printf("상대는 판을 뒤집어버렸습니다!");
+			exit(1);
 		}
 	}
 }
