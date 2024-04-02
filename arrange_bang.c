@@ -92,7 +92,7 @@ int rebus(void) {
 int You;
 short a = 0;
 double count = 0, win = 0;
-int main(void) {
+int loacksijerpaper(void) {
 	
 	while (1) {
 		a++;
@@ -217,4 +217,8 @@ int main(void) {
 			exit(1);
 		}
 	}
+}
+
+int main(void) {
+
 }
