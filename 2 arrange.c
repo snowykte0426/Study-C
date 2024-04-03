@@ -1,6 +1,19 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
+int 빛의_속도_계산기(void) {
+	char planet[4][10] = { "mercury","vinus","earth","mars" };
+	int distance[4] = { 58000000,108000000,150000000,228000000 };
+	double result[4] = { 0.0 };
+	int light = 300000;
+	int i;
+	for (i = 0; i < 4; i++) {
+		result[i] = distance[i] / light;
+		printf("%s : %0.f\n", planet[i], result[i] / 60);
+	}
+	return 0;
+}
+
 int 월급_계산기(void) {
 	int i, salary;
 	int money[10] = { 50000,10000,5000,1000,500,100,50,10,5,1 };
@@ -133,4 +146,61 @@ int 평균_구하기(void) {
 		temp = NULL;
 	}
 	return 0;
+}
+
+int 이차원_배열에_값더하기(void) {
+	int arr[2][3] = { 1,3,5,2,4,6 };
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 3; j++) {
+			arr[i][j] += 5;
+			printf("%d ", arr[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+int 이차원_배열에_열값_더하기(void) {
+	int arr[2][3] = { 1,3,5,2,4,6 };
+	short plus = 0;
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 3; j++) {
+			arr[i][j] += plus;
+			plus++;
+		}
+		plus = 0;
+	}
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 3; j++) {
+			printf("%d ",arr[i][j]);
+		}
+		puts("");
+	}
+}
+
+int 이차원_배열에_최대값_더하기(void) {
+	int arr[2][3] = { 1,3,5,2,4,6 };
+	int max = arr[0][0];
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (max < arr[i][j]) {
+				max = arr[i][j];
+			}
+		}
+	}
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 3; j++) {
+			printf("%d ", arr[i][j] + max);
+		}
+		puts("");
+	}
+	return 0;
+}
+
+int main(void) {
+	//평균_구하기();
+	//빛의_속도_계산기();
+	//이차원_배열에_값더하기();
+	//이차원_배열에_열값_더하기();
+	이차원_배열에_최대값_더하기();
 }
