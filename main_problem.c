@@ -1,5 +1,12 @@
 #include "stdio.h"
 
+int error_massage(int error_sign) {
+    if (error_sign >= 1)
+        puts("에러!!존재하지 않는 값!!");
+    error_sign--;
+    return error_sign;
+}
+
 int pro3(void) {
     int n, f = 1;
     scanf("%d", &n);
@@ -223,60 +230,193 @@ long long pro27(void) {
     return 0;
 }
 
+int pro28(void) {
+    char c1;
+    scanf(" %c", &c1);
+    if (c1 >= 'A' && c1 <= 'Z')
+        puts("대문자입니다.");
+    else if (c1 >= 'a' && c1 <= 'z')
+        puts("소문자입니다.");
+    else if (c1 >= '0' && c1 <= '9')
+        puts("숫자입니다.");
+    else
+        puts("그 외의 문자입니다.");
+    return 0;
+}
+
+void pro29(void) {
+    printf("현재 시각을 입력하시오(시 분): ");
+    int now_time_h, now_time_m, temp;
+    scanf("%d %d", &now_time_h, &now_time_m);
+    printf("자유 시간을 입력하시오(분): ");
+    int free_time_m;
+    scanf("%d", &free_time_m);
+    now_time_m += free_time_m;
+    if (now_time_m >= 60) {
+        now_time_h += now_time_m / 60;
+        now_time_m %= 60;
+    }
+    printf("귀환 시각은 %d시 %d분입니다.", now_time_h, now_time_m);
+}
+
+void pro31(void) {
+    int n;
+    scanf("%d", &n);
+    for (int i = 1; i < 10; i++) {
+        printf("%d X %d = %d\n", n, i, n * i);
+    }
+}
+
+void pro32(void) {
+    long long a, b, n;
+    scanf("%lld %lld %lld", &a, &b, &n);
+    for (long long i = 0; i < n; i++) {
+        a += b;
+    }
+    printf("%lld", a);
+}
+
+void pro33(void) {
+    int n, count = 0;
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++) {
+        if (i % 10 == 3)
+            count++;
+    }
+    printf("%d", count);
+}
+
+int pro59(int x) {
+    x = x / 10000;
+    return 2024 - x + 1;
+}
+
+int pro58(int x) {
+    if (x > 1)
+        return pro58(x - 1) + pro58(x - 2);
+    else if (x == 0)
+        return 0;
+    else if (x == 1)
+        return 1;
+}
+void pro43(void){
+    int i,answer;
+    scanf("%d",&answer);
+    for(i = 2;i<=answer;i++){
+        if(answer%i==0)
+            break;
+    }
+    if(answer==i)
+        printf("소수입니다. ");
+    else
+        printf("소수가 아닙니다. ");
+}
+
 int main(void) {
-    int chker;
+    int chker, error_check = 0;
     error:;
+    if (error_check >= 1)
+        error_check = error_massage(error_check);
     printf("Problem Num:");
     scanf("%d", &chker);
     switch (chker) {
         case 3:
             pro3();
+            break;
         case 6:
             pro6();
+            break;
         case 7:
             pro7();
+            break;
         case 8:
             pro8();
+            break;
         case 10:
             pro10();
+            break;
         case 11:
             pro11();
+            break;
         case 13:
             pro13();
+            break;
         case 14:
             pro14();
+            break;
         case 15:
             pro15();
+            break;
         case 16:
             pro16();
+            break;
         case 17:
             pro17();
+            break;
         case 18:
             pro18();
+            break;
         case 19:
             pro19();
+            break;
         case 20:
             pro20();
+            break;
         case 21:
             pro21();
+            break;
         case 22:
             pro22();
+            break;
         case 23:
             pro23();
+            break;
         case 25:
             pro25();
+            break;
         case 26:
             pro26();
+            break;
         case 27:
             pro27();
+            break;
+        case 28:
+            pro28();
+            break;
+        case 29:
+            pro29();
+            break;
+        case 31:
+            pro31();
+            break;
+        case 32:
+            pro32();
+            break;
+        case 33:
+            pro33();
+            break;
+        case 43:
+            pro43();
+            break;
+        case 59:
+            int birth;
+            scanf("%d", &birth);
+            printf("%d", pro59(birth));
+            break;
+        case 58:
+            int n;
+            scanf("%d", &n);
+            printf("%d", pro58(n));
+            break;
         case 1000:
             mini_test();
+            break;
         case 0:
             printf("End!!");
             break;
         default:
+            error_check++;
             goto error;
-
     }
-
+    return 0;
 }

@@ -63,7 +63,7 @@ void Press_key_f(int count, int arr[][MAX_LOTTO_NUMBERS], int count2) {
     }
 }
 
-int main(void) {
+int lotto_mechine(void) {
     while (1) {
         srand(time(NULL));
         int number;
