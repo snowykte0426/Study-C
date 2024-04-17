@@ -1,4 +1,3 @@
-/*
 #include "stdio.h"
 #include "string.h"
 struct Person{
@@ -11,15 +10,15 @@ int main(void){
     static unsigned short FSTF=2;
     static char CHEAKER;
     struct Person p1;
-    strcpy(p1.name,"È«±æµ¿");
+    strcpy(p1.name,"í™ê¸¸ë™");
     p1.age=30;
-    strcpy(p1.adress,"¼­¿ï½Ã ¿ë»ê±¸ ÇÑ³²µ¿");
-    printf("ÀÌ¸§: %s\n",p1.name);
-    printf("³ªÀÌ: %d\n",p1.age);
-    printf("ÁÖ¼Ò: %s\n",p1.adress);
+    strcpy(p1.adress,"ì„œìš¸ì‹œ ìš©ì‚°êµ¬ í•œë‚¨ë™");
+    printf("ì´ë¦„: %s\n",p1.name);
+    printf("ë‚˜ì´: %d\n",p1.age);
+    printf("ì£¼ì†Œ: %s\n",p1.adress);
     while (1){
         new_struct_cpy();
-        printf("%d¹ø¤Š µî·ÏÀ» ÇÏ½Ã°Ú½À´Ï±î?[Y/N]\n",FSTF);
+        printf("%dë²ˆÂŠ ë“±ë¡ì„ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?[Y/N]\n",FSTF);
         scanf(" %c",&CHEAKER);
         switch (CHEAKER) {
             case 'Y':
@@ -35,16 +34,16 @@ int main(void){
 }
 int new_struct_cpy(void){
     static short i=0;
-    printf("ÀÌ¸§°ú ³ªÀÌ,ÁÖ¼Ò¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\nÀÌ¸§: ");
+    printf("ì´ë¦„ê³¼ ë‚˜ì´,ì£¼ì†Œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\nì´ë¦„: ");
     scanf("%s",&p[i].name);
-    printf("³ªÀÌ:");
+    printf("ë‚˜ì´:");
     scanf("%d",&p[i].age);
-    printf("ÁÖ¼Ò:");
+    printf("ì£¼ì†Œ:");
     scanf("%s",&p[i].adress);
-    puts("±â·ÏµÇ¾ú½À´Ï´Ù!");
-    printf("ÀÌ¸§: %s\n",p[i].name);
-    printf("³ªÀÌ: %d\n",p[i].age);
-    printf("ÁÖ¼Ò: %s\n",p[i].adress);
+    puts("ê¸°ë¡ë˜ì—ˆìŠµë‹ˆë‹¤!");
+    printf("ì´ë¦„: %s\n",p[i].name);
+    printf("ë‚˜ì´: %d\n",p[i].age);
+    printf("ì£¼ì†Œ: %s\n",p[i].adress);
     i++;
 }
-*/
+
