@@ -2,29 +2,44 @@
 #include "stdlib.h"
 #include "time.h"
 #include "windows.h"
-#define MAX_LOTTO_NUMBERS 6 //새로 배운거(메모하기)
+#define MAX_LOTTO_NUMBERS 6
 
 void Press_key_l(int arr[][MAX_LOTTO_NUMBERS], int count) {
     printf("현재 입력된 로또 번호들:\n");
     for (int i = 0; i < count; i++) {
-        for (int j = 0; j < MAX_LOTTO_NUMBERS; j++) {
+        for (int j = 0; j < MAX_LOTTO_NUMBERS; j++)
             printf("%d ", arr[i][j]);
-        }
         printf("\n");
     }
     printf("-------------------------\n");
 }
 
-void Press_key_f(int count, int arr[][MAX_LOTTO_NUMBERS], int count2) {
-    static short check_rand = 0;
+void Press_key_f(int count, int arr[][6]) {
+    static short check = 0;
     int winning_number[MAX_LOTTO_NUMBERS];
-    printf("로또 당첨번호:\n");
-    if (check_rand == 0) {
+    if (check == 0) {
         for (int i = 0; i < MAX_LOTTO_NUMBERS; i++) {
-            winning_number[i] = rand() % 45 + 1;
-            printf("%d ", winning_number[i]);
+            int num;
+            do {
+                num = rand() % 45 + 1;
+                int duplicate = 0;
+                for (int j = 0; j < i; j++) {
+                    if (winning_number[j] == num) {
+                        duplicate = 1;
+                        break;
+                    }
+                }
+                if (!duplicate) {
+                    winning_number[i] = num;
+                    break;
+                }
+            } while (1);
         }
-        check_rand++;
+        check = 1;
+    }
+    printf("로또 당첨번호:\n");
+    for (int i = 0; i < MAX_LOTTO_NUMBERS; i++) {
+        printf("%d ", winning_number[i]);
     }
     printf("\n-------------------------\n입력한 번호:\n");
     for (int i = 0; i < count; i++) {
@@ -33,8 +48,6 @@ void Press_key_f(int count, int arr[][MAX_LOTTO_NUMBERS], int count2) {
         }
         printf("\n");
     }
-
-
     int matches = 0;
     for (int i = 0; i < count; i++) {
         int match_count = 0;
@@ -44,35 +57,30 @@ void Press_key_f(int count, int arr[][MAX_LOTTO_NUMBERS], int count2) {
                 break;
             }
         }
-        if (match_count > 0) {
-            if (match_count == 6)
-                printf("당첨되었습니다!!");
-            else
-                printf("로또 %d: %d개 일치합니다!\n", i + 1, match_count);
-        } else
+        if (match_count > 0)
+            match_count == 6 ? puts("당첨되었습니다!!") : printf("로또 %d: %d개 일치합니다!\n", i + 1, match_count);
+        else
             printf("로또 %d: 낙첨입니다...\n", i + 1);
         matches += match_count;
     }
-
     if (matches == count * MAX_LOTTO_NUMBERS) {
         printf("전체 당첨입니다!!\n");
     } else if (matches > 0) {
         printf("총 %d개 일치합니다!\n", matches);
     } else {
         printf("전부 낙첨입니다...\n");
+        puts("당첨되지 않았습니다");
     }
 }
 
-int lotto_mechine(void) {
+int main(void) {
     while (1) {
         srand(time(NULL));
         int number;
         printf("로또를 몇 번 뽑으시겠습니까?: ");
         scanf("%d", &number);
         while (getchar() != '\n');
-
         int user_num[number][MAX_LOTTO_NUMBERS];
-
         for (int j = 0; j < number; j++) {
             int valid;
             do {
@@ -86,17 +94,16 @@ int lotto_mechine(void) {
                     j--;
                     continue;
                 } else if (input[0] == 'f') {
-                    Press_key_f(j, user_num, j);
+                    Press_key_f(j, user_num);
                     j--;
                     continue;
                 }
-
                 char *token = strtok(input, " ");
                 int k = 0;
                 while (token != NULL && k < MAX_LOTTO_NUMBERS) {
                     int num = atoi(token);
                     if (num < 1 || num > 45) {
-                        printf("잘못된 값입니다 (1~45 사이 입력): %d\n", num);
+                        printf("잘못된 값입니다 (1~45 사이 입력): %d\n다시 로또번호 6개를 입력해주세요\n", num);
                         valid = 0;
                         break;
                     }
@@ -114,8 +121,7 @@ int lotto_mechine(void) {
                 if (k < MAX_LOTTO_NUMBERS) valid = 0;
             } while (!valid);
         }
-
-        Press_key_f(number, user_num, number);
+        Press_key_f(number, user_num);
         while (1) {
             char check;
             printf("게임이 끝났습니다\n다시 시작하시겠습니까?[r/x]: ");
@@ -138,4 +144,3 @@ int lotto_mechine(void) {
     }
     return 0;
 }
-
