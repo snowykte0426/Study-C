@@ -1,4 +1,3 @@
-/*
 #define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 #include <windows.h>
@@ -8,24 +7,21 @@ int main(void) {
 	char name[10] = {0, }, departcode = 0;
 	unsigned short age = 0;
 	float securykey = 0;
-	printf("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä:");
+	printf("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”:");
 	gets(name);
-	printf("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä:");
+	printf("ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”:");
 	scanf(" %hu", &age);
-	printf("ºÎ¼­ÄÚµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä:");
+	printf("ë¶€ì„œì½”ë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”:");
 	scanf(" %c", &departcode);
-	printf("º¸¾ÈÅ°¸¦ ÀÔ·ÂÇÏ¼¼¿ä:");
+	printf("ë³´ì•ˆí‚¤ë¥¼ ì…ë ¥í•˜ì„¸ìš”:");
 	scanf("%f", &securykey);
-	printf("*********************************\nÀÌ¸§ : %s\n³ªÀÌ : %hu\nºÎ¼­ÄÚµå : %c\nº¸¾ÈÅ° : %.3f\n*********************************", name, age, departcode, securykey);
+	printf("*********************************\nì´ë¦„ : %s\në‚˜ì´ : %hu\në¶€ì„œì½”ë“œ : %c\në³´ì•ˆí‚¤ : %.3f\n*********************************", name, age, departcode, securykey);
 	return 0;
 }
-*/
 
-
-/*
 int main() {
 	long long num1 = 0, num2 = 0, result[5] = {0};
-	printf("µÎ ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+	printf("ë‘ ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 	scanf("%lld %lld", &num1, &num2);
 	result[0] = num1 + num2;
 	result[1] = num1 - num2;
@@ -39,25 +35,22 @@ int main() {
 	printf("%lld %% %lld = %lld\n", num1, num2, result[4]);
 	return 0;
 }
-*/
 
-/*
 int main() {
-	SetConsoleTitle(TEXT("°ú¸ñº° Á¡¼ö °è»ê ÇÁ·Î±×·¥"));
+	SetConsoleTitle(TEXT("ê³¼ëª©ë³„ ì ìˆ˜ ê³„ì‚° í”„ë¡œê·¸ë¨"));
 	float reflection_rate1 = 0, reflection_rate2 = 0, reflection_rate3 = 0;
 	float result = 0, score1 = 0, score2 = 0, score3 = 0, temp1 = 0, temp2 = 0, temp3 = 0;
-	printf("*** °ú¸ñº° Á¡¼ö °è»ê ÇÁ·Î±×·¥ ***\n");
-	printf("\nÁß°£°í»ç ¹İ¿µ ºñÀ²/¹ŞÀº Á¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä:");
+	printf("*** ê³¼ëª©ë³„ ì ìˆ˜ ê³„ì‚° í”„ë¡œê·¸ë¨ ***\n");
+	printf("\nì¤‘ê°„ê³ ì‚¬ ë°˜ì˜ ë¹„ìœ¨/ë°›ì€ ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”:");
 	scanf(" %f %f", &reflection_rate1, &score1);
-	printf("\n±â¸»°í»ç ¹İ¿µ ºñÀ²/¹ŞÀº Á¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä:");
+	printf("\nê¸°ë§ê³ ì‚¬ ë°˜ì˜ ë¹„ìœ¨/ë°›ì€ ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”:");
 	scanf(" %f %f", &reflection_rate2, &score2);
-	printf("\n¼öÇàÆò°¡ ¹İ¿µ ºñÀ²/¹ŞÀº Á¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä:");
+	printf("\nìˆ˜í–‰í‰ê°€ ë°˜ì˜ ë¹„ìœ¨/ë°›ì€ ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”:");
 	scanf(" %f %f", &reflection_rate3, &score3);
 	temp1 = score1 * reflection_rate1;
 	temp2 = score2 * reflection_rate2;
 	temp3 = score3 * reflection_rate3;
 	result = temp1 + temp2 + temp3;
-	printf("\nÁ¡¼ö´Â %.1fÀÔ´Ï´Ù.", result);
+	printf("\nì ìˆ˜ëŠ” %.1fì…ë‹ˆë‹¤.", result);
 	return 0;
 }
-*/
