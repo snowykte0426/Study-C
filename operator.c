@@ -1,4 +1,3 @@
-/*
 #define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 
@@ -79,20 +78,20 @@ int main11() {
 	int money, duration;
 	double rate;
 	double result;
-	printf("Á¤±â ¿¹±İ ±İ¾×À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä: ");
+	printf("ì •ê¸° ì˜ˆê¸ˆ ê¸ˆì•¡ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”: ");
 	scanf("%d", &money);
-	printf("Á¤±â ¿¹±İ ÀÌÀ²À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä: ");
+	printf("ì •ê¸° ì˜ˆê¸ˆ ì´ìœ¨ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”: ");
 	scanf("%lf", &rate);
-	printf("Á¤±â ¿¹±İ ±â°£À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä: ");
+	printf("ì •ê¸° ì˜ˆê¸ˆ ê¸°ê°„ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”: ");
 	scanf("%d", &duration);
 	result = money + money * 0.01 * rate * duration;
-	printf("%d¿øÀ» %.1f%%ÀÌÀ²·Î %d³â°£ ¿¹Ä¡ ÈÄ ¿ø¸® ÇÕ°è´Â %.1fÀÔ´Ï´Ù.", money, rate, duration, result);
+	printf("%dì›ì„ %.1f%%ì´ìœ¨ë¡œ %dë…„ê°„ ì˜ˆì¹˜ í›„ ì›ë¦¬ í•©ê³„ëŠ” %.1fì…ë‹ˆë‹¤.", money, rate, duration, result);
 	return 0;
 }
 
 int main12() {
 	int a, b;
-	printf("µÎ ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+	printf("ë‘ ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 	scanf("%d %d", &a, &b);
 	printf("%d + %d = %d\n", a, b, a + b);
 	printf("%d - %d = %d\n", a, b, a - b);
@@ -105,32 +104,31 @@ int main12() {
 int main13() {
 	int mileSpeed;
 	double kmSpeed;
-	printf("º¼ÀÇ ¼Óµµ ÀÔ·Â(¸¶ÀÏ): ");
+	printf("ë³¼ì˜ ì†ë„ ì…ë ¥(ë§ˆì¼): ");
 	scanf("%d", &mileSpeed);
 	kmSpeed = mileSpeed * 1.609;
-	printf("%d¸¶ÀÏÀº %.3fkmÀÔ´Ï´Ù.", mileSpeed, kmSpeed);
+	printf("%dë§ˆì¼ì€ %.3fkmì…ë‹ˆë‹¤.", mileSpeed, kmSpeed);
 	return 0;
 }
 
 int main14() {
 	int mt = 0;
 	double b1 = 0;
-	printf("ÁıÀÇ ¸éÀûÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä(´ÜÀ§:Á¦°ö¹ÌÅÍ): ");
+	printf("ì§‘ì˜ ë©´ì ì„ ì…ë ¥í•´ì£¼ì„¸ìš”(ë‹¨ìœ„:ì œê³±ë¯¸í„°): ");
 	scanf("%d", &mt);
 	b1 = mt * 0.3025;
-	printf("%dm©÷´Â %.4fÆòÀÔ´Ï´Ù.", mt, b1);
+	printf("%dmÂ²ëŠ” %.4fí‰ì…ë‹ˆë‹¤.", mt, b1);
 	return 0;
 }
 #include <math.h>
 int main() {
 	int price, person;
 	float temp;
-	printf("ÃÑ ±İ¾×: ");
+	printf("ì´ ê¸ˆì•¡: ");
 	scanf("%d", &price);
-	printf("ÃÑ ÀÎ¿ø: ");
+	printf("ì´ ì¸ì›: ");
 	scanf("%d", &person);
 	temp = price / person;
-	printf("%d¸íÀÌ °¢°¢ %.0f¿ø¾¿ ÁöºÒ,1¸í %.0f0¿ø ÁöºÒ", person, temp, round(temp/10));
+	printf("%dëª…ì´ ê°ê° %.0fì›ì”© ì§€ë¶ˆ,1ëª… %.0f0ì› ì§€ë¶ˆ", person, temp, round(temp/10));
 	return 0;
 }
-*/
