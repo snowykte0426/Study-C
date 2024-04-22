@@ -1,14 +1,13 @@
-/*
 #include <stdio.h>
 int main(){
 
 	int a = 0;
 	
-	printf("1°³ÀÇ °ªÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+	printf("1ê°œì˜ ê°’ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 	scanf_s("%d", &a); 
-	printf("%d´Â 8Áø¼ö %oÀÔ´Ï´Ù.\n", a, a);
-	printf("%d´Â 16Áø¼ö %xÀÔ´Ï´Ù.\n", a, a);
-	printf("%d´Â ¾Æ½ºÄ«ÄÚµå %cÀÔ´Ï´Ù.\n", a, a); 
+	printf("%dëŠ” 8ì§„ìˆ˜ %oì…ë‹ˆë‹¤.\n", a, a);
+	printf("%dëŠ” 16ì§„ìˆ˜ %xì…ë‹ˆë‹¤.\n", a, a);
+	printf("%dëŠ” ì•„ìŠ¤ì¹´ì½”ë“œ %cì…ë‹ˆë‹¤.\n", a, a); 
 	
 	
 	return 0;
@@ -25,4 +24,3 @@ int main() {
 	puts("wolrd");
 	return 0;
 }
-*/
