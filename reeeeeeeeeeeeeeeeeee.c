@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
-/*
+
 int main(void) {
 	int a, b, t;
 	scanf("%d", &t);
@@ -24,7 +24,6 @@ int main(void) {
 	printf("%d", sum);
 	return 0;
 }
-*/
 
 int main2djs() {
 	int total = 0, get = 0, price = 0, set_get = 0, sum = 0;
