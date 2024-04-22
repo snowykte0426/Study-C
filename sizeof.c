@@ -1,9 +1,8 @@
-/*
 #include <stdio.h>
 #include <limits.h>
 int main1(void) {
-printf("charÀÇ ÃÖ¼Ú°ª: %6d, charÀÇ ÃÖ´ñ°ª: %6d\n",CHAR_MIN, CHAR_MAX);
-printf("shortÀÇ ÃÖ¼Ú°ª: %6d, shortÀÇ ÃÖ´ñ°ª: %6d\n", SHRT_MIN, SHRT_MAX);
+printf("charì˜ ìµœì†Ÿê°’: %6d, charì˜ ìµœëŒ“ê°’: %6d\n",CHAR_MIN, CHAR_MAX);
+printf("shortì˜ ìµœì†Ÿê°’: %6d, shortì˜ ìµœëŒ“ê°’: %6d\n", SHRT_MIN, SHRT_MAX);
 char cA = 128, cB = -129;
 short sA = 32768, sB = -32769;
 printf("%d %d\n", cA, cB);
@@ -35,4 +34,3 @@ int main4(void){
 	printf("%d %d %d", a, b, c);
 	return 0;
 }
-*/
