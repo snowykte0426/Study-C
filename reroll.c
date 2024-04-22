@@ -1,4 +1,3 @@
-/*
 #define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 int main1() {
@@ -29,20 +28,20 @@ int main2(void) {
 int main3(void) {
 	int standard = 173, height = 168;
 	if (standard > height) {
-		printf("Æò±Õ ÀÌÇÏ");
+		printf("í‰ê·  ì´í•˜");
 	}
 	else if (standard == height) {
-		printf("Æò±Õ");
+		printf("í‰ê· ");
 	}
 	else {
-		printf("Æò±Õ ÀÌ»ó");
+		printf("í‰ê·  ì´ìƒ");
 	}
 	return 0;
 }
 int main(void) {
 	int score;
 	char grade;
-	puts("Á¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä(1~100)");
+	puts("ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”(1~100)");
 	putchar('>');
 	scanf("%d", &score);
 	switch (score / 10) {
@@ -53,7 +52,6 @@ int main(void) {
 	case 6: grade = 'D'; break;
 	default: grade = 'F';
 	}
-	printf("ÇĞÁ¡Àº %c ÀÔ´Ï´Ù.", grade);
+	printf("í•™ì ì€ %c ì…ë‹ˆë‹¤.", grade);
 	return 0;
 }
-*/
