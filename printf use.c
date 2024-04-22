@@ -1,9 +1,8 @@
-/*
 #include <stdio.h>
 int main1(){
 
 printf("------------------------------\n");
-printf("»óÇ°¸í\tÃÑ¼ö·®\tÀç°í\t°¡°İ\n------------------------------\n");
+printf("ìƒí’ˆëª…\tì´ìˆ˜ëŸ‰\tì¬ê³ \tê°€ê²©\n------------------------------\n");
 printf("%s\t%d\t%d\t%d\n%s\t%d\t%d\t%d\n%s%d\t%d\t%d\t%d\n", "G5", 100, 45, 965000, "S7", 200, 145, 985000, "NOTE", 5, 35, 2, 1105000);
 printf("------------------------------\n");
 return 0;
@@ -11,18 +10,17 @@ return 0;
 int main() {
 	int age = 0;
 	char name[100], bloodtype[100], a = 0;
-	printf("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä\n");
+	printf("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”\n");
 	gets(name);
-	printf("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä\n");
+	printf("ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”\n");
 	scanf_s(" %d", &age);
-	printf("Ç÷¾×ÇüÀ» ÀÔ·ÂÇÏ¼¼¿ä\n");
+	printf("í˜ˆì•¡í˜•ì„ ì…ë ¥í•˜ì„¸ìš”\n");
 	getchar(a);
 	gets(bloodtype);
-	printf("\n%s(%d»ì, %sÇü)", name, age, bloodtype);
+	printf("\n%s(%dì‚´, %sí˜•)", name, age, bloodtype);
 
 
 
 
 	return 0;
 }
-*/
