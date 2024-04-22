@@ -1,4 +1,4 @@
-/*#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 int mainwsadhfsahsahfaj(void) {
 	//printf("Hello World!");
@@ -39,4 +39,4 @@ int main(void) {
 	result = n1 / n2;
 	printf("%f", result);
 	return 0;
-}*/
+}
