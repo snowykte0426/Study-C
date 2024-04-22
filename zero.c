@@ -51,11 +51,10 @@ int mainboids(void){
 	m = ++i && ++j && ++k;
 	printf("%d %d %d %d\n", i, j, k, m);
 	return 0;
-}/*
+}
 int ma2in(void){
 	int num1,num2,num3,num4,num5,num6,num7;
 	scanf("%d", &num1);
 	scanf("%d",&num2);
 	printf("%d", num1*(num % 1000)/100));
 }
-*/
