@@ -1,8 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <math.h>
-/*
-    int main(void) {
+
+int main(void) {
         short n1, n2;
         scanf("%u %u", &n1, &n2);
         printf("%u", n1 + n2);
@@ -13,8 +13,8 @@ int main(void) {
     scanf("%d %d", &n1, &n2);
     printf("%d", n1 - n2);
     return 0;
-}*/
-/*
+}
+
 int main(void) {
     int TestTable, jo_x, jo_y, back_x, back_y, jo_to_ruu, back_to_ruu, result;
     double distanse, subtract;
@@ -34,4 +34,4 @@ int main(void) {
         printf("%d\n", result);
     }
     return 0;
-}*/
+}
