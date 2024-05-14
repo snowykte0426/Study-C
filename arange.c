@@ -1,4 +1,4 @@
-/*#define _CRT_SECURE_NO_WARNINGS 
+#define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 int mainpqkdsnfsnvsj(void) {
 	int height[5] = { 172,181,163,175,143 };
@@ -14,7 +14,7 @@ int msfsadfsavsvbgyr(void) {
 	for (i = 0; i < 5; i++) {
 		sum += score[i];
 	}
-	printf("ÃÑÁ¡Àº %dÀÔ´Ï´Ù.", sum);
+	printf("ì´ì ì€ %dìž…ë‹ˆë‹¤.", sum);
 	return 0;
 }
 int VOIDA(void) {
@@ -41,9 +41,8 @@ int mainsasdagsdfhdfghggh(void) {
 		for (ho = 0; ho < 4; ho++) {
 			sumFloor[floor] = sumFloor[floor] + apt[floor][ho];
 		}
-		printf("%dÃþÀÇ °ü¸®ºñ Æò±ÕÀº %1.f¿øÀÔ´Ï´Ù.\n", floor + 1, sumFloor[floor] / 4.0);
+		printf("%dì¸µì˜ ê´€ë¦¬ë¹„ í‰ê· ì€ %1.fì›ìž…ë‹ˆë‹¤.\n", floor + 1, sumFloor[floor] / 4.0);
 	}
-	printf("¾ÆÆÄÆ® ÀüÃ¼ÃþÀÇ °ü¸®ºñ Æò±ÕÀº %0.f¿ø ÀÔ´Ï´Ù.", (sumFloor[0] + sumFloor[1] + sumFloor[2]) / 12.0);
+	printf("ì•„íŒŒíŠ¸ ì „ì²´ì¸µì˜ ê´€ë¦¬ë¹„ í‰ê· ì€ %0.fì› ìž…ë‹ˆë‹¤.", (sumFloor[0] + sumFloor[1] + sumFloor[2]) / 12.0);
 	return 0;
 }
-*/
