@@ -30,11 +30,11 @@ void gotoxy(int x, int y) {
 void loginmenuDraw(void) {
     int x = 55, y = 16;
     gotoxy(55 - 2, 16);
-    printf("> ·Î±×ÀÎ");
+    printf("> ë¡œê·¸ì¸");
     gotoxy(55, 17);
-    printf("È¸¿ø°¡ÀÔ");
+    printf("íšŒì›ê°€ì…");
     gotoxy(55, 18);
-    printf("Á¾·á");
+    printf("ì¢…ë£Œ");
     while (1) {
         int n = KeyControl();
         switch (n) {
