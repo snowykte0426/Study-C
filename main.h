@@ -6,6 +6,7 @@
 #include "stdlib.h"
 #include "conio.h"
 #include "stdbool.h"
+#include "string.h"
 
 #define pause system("pause > nul")
 #define cls system("cls")
@@ -19,3 +20,4 @@ void signup(void);
 void gameMenu(void);
 void loginMenu(void);
 void mainMenu(void);
+void printCentered(const char* str);

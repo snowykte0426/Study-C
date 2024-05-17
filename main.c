@@ -1,5 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "main.h"
+#include "db.h"
+#pragma comment (lib,"libmariadb.lib")
+#pragma comment(lib, "user32.lib")
 
 void loginMenu(void);
 void login(void);
@@ -7,44 +10,54 @@ void signup(void);
 void mainMenu(void);
 void gameMenu(void);
 
+void clearInputBuffer() {
+    char c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
 int main(void) {
     CursorView(0);
     system("COLOR 0F");
     loginMenu();
     int POS = 0;
+    int prevPOS = -1; // 이전 POS 값
     while (true) {
-        if (GetAsyncKeyState(VK_LEFT) & 0x8000) {
+        if (GetAsyncKeyState(VK_LEFT) & 0x8000 && POS != prevPOS) {
             cls;
             box_print();
             if (POS == 0) POS = 1;
             else POS -= 1;
+            clearInputBuffer();
         }
-        else if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {
+        else if (GetAsyncKeyState(VK_RIGHT) & 0x8000 && POS != prevPOS) {
             cls;
             box_print();
             if (POS == 1) POS = 0;
             else POS += 1;
+            clearInputBuffer();
         }
         else if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
             cls;
             box_print();
+            clearInputBuffer();
             break;
         }
         switch (POS) {
         case 0:
             SetColor(11);
-            gotoxy(35, 4); printf("> 로그인");
+            gotoxy(20, 4); printf("> 로그인");
             SetColor(15);
-            gotoxy(85, 4); printf("회원가입");
+            gotoxy(75, 4); printf("회원가입");
             break;
         case 1:
-            gotoxy(35, 4); printf("로그인");
+            gotoxy(20, 4); printf("로그인");
             SetColor(11);
-            gotoxy(85, 4); printf("> 회원가입");
+            gotoxy(75, 4); printf("> 회원가입");
             SetColor(15);
             break;
         default: break;
         }
+        prevPOS = POS; // 현재 POS 값을 이전 POS 값으로 설정
         Sleep(150);
     }
     cls;
@@ -58,39 +71,84 @@ void loginMenu(void) {
     system("mode con: cols=120 lines=9");
     system("title 로그인 및 회원가입");
     box_print();
-    gotoxy(35, 4); printf("로그인");
-    gotoxy(85, 4); printf("회원가입");
+    gotoxy(20, 4); printf("로그인");
+    gotoxy(75, 4); printf("회원가입");
     return;
 }
 
 void login(void) {
     char username[50], password[50];
+    unsigned short sync;
     cls;
-    printf("로그인\n");
-    printf("아이디: ");
-    scanf("%s", username);
-    printf("비밀번호: ");
-    scanf("%s", password);
-    printf("로그인 성공!\n");
-    Sleep(2000);
+    system("title 로그인");
+    while (1) {
+        printf("로그인\n");
+        printf("아이디: ");
+        scanf_s("%s", username, sizeof(username));
+        username[strcspn(username, "\n")] = NULL;
+        printf("비밀번호: ");
+        scanf_s("%s", password, sizeof(password));
+        password[strcspn(password, "\n")] = NULL;
+        sync = sign_in_db(username, password);
+        Sleep(2000);
+        if (sync == 101) {
+            Sleep(4000);
+            exit(1);
+        }
+        if (sync == 102) {
+            Sleep(4000);
+            exit(1);
+        }
+        else if (sync == 100) {
+            printf("로그인 성공!\n");
+            break;
+        }
+        else if (sync == 98) {
+            printf("아이디나 비밀번호를 확인하세요\n");
+            continue;
+        }
+        else {
+            printf("Server connect error");
+            Sleep(4350);
+            exit(1);
+        }
+    }
 }
 
 void signup(void) {
     char username[50], password[50], confirmPassword[50];
+    unsigned short sync;
     cls;
+    system("title 회원가입");
     printf("회원가입\n");
     printf("아이디: ");
-    scanf("%s", username);
+    scanf_s("%s", username, sizeof(username));
+    getchar();
     printf("비밀번호: ");
-    scanf("%s", password);
+    scanf_s("%s", password, sizeof(password));
+    getchar();
     printf("비밀번호 확인: ");
-    scanf("%s", confirmPassword);
-    if (strcmp(password, confirmPassword) == 0) {
-        printf("회원가입 성공!\n");
+    scanf_s("%s", confirmPassword, sizeof(password));
+    sync = sign_up_db(username, password);
+    if (sync == 101) {
+        Sleep(4000);
+        exit(1);
+    }
+    if (sync == 102) {
+        Sleep(4000);
+        exit(1);
+    }
+    else if(sync==100) {
+        printf("회원가입에 성공하였습니다\n");
     }
     else {
-        printf("비밀번호가 일치하지 않습니다.\n");
+        printf("Server connect error");
+        Sleep(4350);
+        MYSQL test_check;
+        db_close(&test_check);
+        exit(1);
     }
+    getchar();
     Sleep(2000);
 }
 
