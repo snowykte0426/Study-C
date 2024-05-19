@@ -7,11 +7,12 @@
 #define RIGHT 3
 #define SUBMIT 4
 
-#include"stdio.h"
-#include"Windows.h"
-#include"mysql.h"
+#include "stdio.h"
+#include "Windows.h"
+#include "mysql.h"
 #include "conio.h"
 #include "stralign.h"
+#include "stdbool.h"
 
 #pragma comment (lib,"libmariadb.lib")
 #pragma comment(lib, "user32.lib")
@@ -20,3 +21,5 @@ void ASCII_Art_print(void);
 void Program_config(void);
 void loginmenuDraw(void);
 void CursorView(char show);
+int KeyControl(void);
+void sign_in(void);
