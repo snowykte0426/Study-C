@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "stdio.h"
 #include "stdlib.h"
 #include "time.h"
@@ -21,9 +22,7 @@ int computer(int computer_num[]) {
                     break;
 
             } else if(i==2) {
-                computer_num[2] == computer_num[0] && computer_num[2] == computer_num[1] ? computer_num[2] = rand() % 10,check=1
-                                                                                         : printf("%d ",
-                                                                                                  computer_num[i]);
+                computer_num[2] == computer_num[0] && computer_num[2] == computer_num[1] ? computer_num[2] = rand() % 10,check=1: printf("%d ", computer_num[i]);
                 if(check>0){
                     continue;
                 }else
@@ -32,6 +31,7 @@ int computer(int computer_num[]) {
         }
         }
     puts("");
+    return;
 }
 
 void strike_and_ball(int s, int b) {
@@ -69,4 +69,9 @@ int baseball_num(void) {
     }
     puts("All match!!");
     return 0;
+}
+
+int main() {
+	baseball_num();
+	return 0;
 }
